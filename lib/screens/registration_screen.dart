@@ -94,6 +94,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   onPressed: _register,
                   child: const Text('Registrarse'),
                 ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('¿Ya tienes cuenta? Ingresar', style: TextStyle(color: Colors.white)),
+                ),
               ],
             ),
           ),

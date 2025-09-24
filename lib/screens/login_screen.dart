@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                   onPressed: _goToRegister,
-                  child: const Text('¿No tienes cuenta? Regístrate'),
+                  child: const Text('¿No tienes cuenta? Regístrate', style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),
