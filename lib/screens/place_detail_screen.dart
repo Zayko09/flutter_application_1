@@ -16,6 +16,8 @@ class PlaceDetailScreen extends StatefulWidget {
 
 class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   final FirestoreService _firestoreService = FirestoreService();
+  late bool _isFavorite;
+  final FirestoreService _firestoreService = FirestoreService();
   final User? currentUser = FirebaseAuth.instance.currentUser;
   final TextEditingController _commentController = TextEditingController();
   bool isLiked = false;
@@ -119,7 +121,12 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                           IconButton(
                             icon: Icon(isLiked ? Icons.favorite : Icons.favorite_border,
                                 color: isLiked ? Colors.red : null),
-                            onPressed: _toggleLike,
+                                        onPressed: () {
+              setState(() {
+                _isFavorite = !_isFavorite;
+              });
+              _firestoreService.toggleFavoriteStatus(widget.place.id, _isFavorite);
+            },
                           ),
                           Text('${widget.place.likedBy.length} ${l10n.likes}'),
                         ],

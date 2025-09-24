@@ -34,8 +34,13 @@ class FirestoreService {
 
   // Add a new place
   Future<void> addPlace(Place place) {
-    return _placesRef.add(place);
+    return _db.collection('places').add(place.toMap());
   }
+
+  Future<void> toggleFavoriteStatus(String placeId, bool isFavorite) {
+    return _db.collection('places').doc(placeId).update({'isFavorite': isFavorite});
+  }
+}
 
   // Update a place
   Future<void> updatePlace(Place place) {
