@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'models.dart';
 
@@ -36,11 +35,6 @@ class FirestoreService {
   Future<void> addPlace(Place place) {
     return _db.collection('places').add(place.toMap());
   }
-
-  Future<void> toggleFavoriteStatus(String placeId, bool isFavorite) {
-    return _db.collection('places').doc(placeId).update({'isFavorite': isFavorite});
-  }
-}
 
   // Update a place
   Future<void> updatePlace(Place place) {
