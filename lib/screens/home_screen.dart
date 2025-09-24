@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Rincones de Colombia'),
+        title: const Text('Me Gusta Colombia'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
